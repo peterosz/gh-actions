@@ -4,15 +4,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Go to folder
-        run: cd second-action
-      - name: Get code
-        uses: actions/checkout@v3
       - name: Install node
         uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: Install dependencies
-        run: npm ci
-      - name: Run tests
-        run: npm test
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Go to folder
+        run: cd second-action && npm ci && npm test
